@@ -122,10 +122,10 @@ int classe = CLASSE; // Classe de potencia do motor
  bool bzAciona;
 
 // Acesso ao WiFi e MQTT
-const char* ssid = "realme C55";
-const char* password = "d6qfat2m";
-
+const char* ssid = "Sysmaker";
+const char* password = "2miranda2";
 // Configuração MQTT
+
 uint64_t chipid; 
 uint8_t mac_int[6]; // Mac em formato "inteiro"
 char mac_str [20];  // Mac  em formato String (usado para MQTT ClientID
@@ -134,35 +134,38 @@ const char* mqttUser = "fatec";
 const char* mqttPassword = "SQRT(e)!=172";
 
 
-void setup() {
-  Serial.begin(115200); //921600
 
-  iniciaHardware();
+
+
+
+void setup() {
+  Serial.begin(115200);
+
+  iniciaHardware ();
 
   conectarWiFi();
 
   client.setServer(mqttServer, 1883);
 
-  iniciaMPU6050();
-  
+  iniciaMPU6050 ();
+
 }
 
 void loop() {
-
   if (!client.connected()) {
         reconnect();
     }
   
   coletaDados();
 
-  calculaRMS();
+  calculaRMS ();
 
   //vTaskDelay(pdMS_TO_TICKS(SAMPLING_FREQ));
 
 }
 
 //
-// COLETA DE DADOS a guarda dados brutos para psteriormente calcular RMS
+// COLETA DE DADOS a guarda dados brutos para psteriormente calcular RMS e FFT
 //
 void coletaDados() {
     int n = 0;
@@ -171,7 +174,7 @@ void coletaDados() {
 
     
 
-    zeraMatrizes();
+    zeraMatrizes ();
     Serial.println("----- Coletando dados: " + String (AMOSTRAS) + " amostras");
     for (int i = 0; i < AMOSTRAS; i++) {
       mpu.getEvent(&a, &g, &temp);
@@ -202,7 +205,7 @@ void coletaDados() {
 //
 // ZERA OS VALORES CONTIDOS NAS MATRIZES DE LEITURA
 //
-void zeraMatrizes() {
+void zeraMatrizes () {
   int i;
   for (i = 0; i < AMOSTRAS; i++) {
     acc_x [i] = 0;
@@ -215,7 +218,7 @@ void zeraMatrizes() {
 //
 // SOMA DOAS DADOS DE LEITURA AO QUADRADO
 //
-double somaAcc(double acc [AMOSTRAS]) {
+double somaAcc (double acc [AMOSTRAS]) {
   double sm = 0.0;
   int i;
 
@@ -230,7 +233,7 @@ double somaAcc(double acc [AMOSTRAS]) {
 //
 // MEDIA DOS DADOS DE LEITURA
 //
-double media(double acc [AMOSTRAS]) {
+double media (double acc [AMOSTRAS]) {
   int i, s;
 
   s = 0;  
@@ -247,11 +250,11 @@ double media(double acc [AMOSTRAS]) {
 //
 //  SOMA DOS DADOS DE LEITURA MENOS A MEDIA
 //
-void mediaAcc(double acc [AMOSTRAS]) {
+void mediaAcc (double acc [AMOSTRAS]) {
   double med; // media da matriz
   int i;
 
-  med = media(acc);
+  med = media (acc);
 
   for (i = 0; i < AMOSTRAS; i++) {
     acc [i]= acc [i] - med; 
@@ -309,6 +312,10 @@ void calculaRMS () {
   Serial.println("");
    
 }
+
+
+
+
 
 
 
@@ -568,18 +575,18 @@ while (true)  {
    // ve quantos segundos apertou
   if (cnt2 == 1) {
     //Serial.println (cnt2); 
-    ESP.restart();
+    ESP.restart ();
     //displayCfg ();// mostra config de rede no Display
   }
   if (cnt2 == 2) {
      //Serial.println (cnt2); 
-     ESP.restart();
+     ESP.restart ();
   }
   if (cnt2 == 3) {
-    ESP.restart();
+    ESP.restart ();
   }
   if (cnt2 == 4) {
-    ESP.restart();
+    ESP.restart ();
   }
   cnt2 = 0;
   cnt1 = 0;      
@@ -606,8 +613,8 @@ void conectarWiFi() {
 
     Serial.print("Endereço IP: ");
     Serial.println(WiFi.localIP());
-    Serial.print("MAC Address: ");
-    Serial.println(mac_str);
+    Serial.print ("MAC Address: ");
+    Serial.println (mac_str);
     
 }
 
@@ -645,7 +652,7 @@ void setMacAddress () {
 //------------------------------------------------------------------------------------------
 
 bool atoh(uint8_t * myuint,  char * mystring) {   
-  int i, j;
+  int i, j; 
   for (i = 0; i < (strlen(mystring) / 2); i++) {
           myuint[i] = 0;
           for (j = 0; j < 2; j++) {

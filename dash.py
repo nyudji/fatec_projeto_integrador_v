@@ -2,6 +2,7 @@ import streamlit as st
 import paho.mqtt.client as mqtt
 import time
 import pandas as pd
+from save2 import save
 
 # Definindo variáveis para o MQTT
 MQTT_BROKER = "brw.net.br"  # Host do MQTT
@@ -74,31 +75,37 @@ def main():
             if classe:
                 st.subheader('Diagnóstico')
                 if classe[-1] == 'A':
-                    st.markdown("<h2 style='color: green; text-align: left;'>[A]</h2>", unsafe_allow_html=True)
-                    st.write("**Estado [A]: Excelente.** O motor está em boas condições.")
-                elif classe[-1] == 'B':
-                    col1, col2 = st.columns([1, 2])  # Define as colunas com diferentes larguras
+                    col1, col2 = st.columns([1, 2])
+                    with col1:
+                        st.markdown("<h2 style='text-align: center;'>Estado</h2>", unsafe_allow_html=True)
+                    with col2:
+                        st.markdown("<h2 style='color: green; text-align: left;'>[A]</h2>", unsafe_allow_html=True)
+                        st.write("**O motor está em boas condições.**")
+                elif classe[-1] == 'B':        
+                    col1, col2 = st.columns([1, 2])
                     with col1:
                         st.markdown("<h2 style='text-align: center;'>Estado</h2>", unsafe_allow_html=True) 
                     with col2:
                         st.markdown("<h2 style='color: lightblue; text-align: left;'>[B]</h2>", unsafe_allow_html=True)
                         st.write("**O motor está em condições aceitáveis.**")
                 elif classe[-1] == 'C':
-                    col1, col2 = st.columns([1, 2])  # Define as colunas com diferentes larguras
+                    col1, col2 = st.columns([1, 2])
                     with col1:
                         st.markdown("<h2 style='text-align: center;'>Estado</h2>", unsafe_allow_html=True)
                     with col2:
                         st.markdown("<h2 style='color: orange; text-align: left;'>[C]</h2>", unsafe_allow_html=True)
-                        st.write("**Estado [C]: Preocupante.** A manutenção é recomendada.")
+                        st.write("**A manutenção é recomendada.**")
                 elif classe[-1] == 'D':
-                    col1, col2 = st.columns([1, 2])  # Define as colunas com diferentes larguras
+                    col1, col2 = st.columns([1, 2])
                     with col1:
                         st.markdown("<h2 style='text-align: center;'>Estado</h2>", unsafe_allow_html=True)
                     with col2:
                         st.markdown("<h2 style='color: red; text-align: left;'>[D]</h2>", unsafe_allow_html=True)
-                        st.write("**Estado [D]: Crítico.** Manutenção corretiva necessária imediatamente.")
-                        # Gráfico combinado de vibrações
-                        st.subheader('Gráfico Combinado de Vibrações (X, Y, Z)')
+                        st.write("**Manutenção corretiva necessária imediatamente.**")
+
+
+            # Gráfico combinado de vibrações
+            st.subheader('Gráfico Combinado de Vibrações (X, Y, Z)')            
             if rms_x and rms_y and rms_z:
                 # Cria um DataFrame para combinar os eixos
                 data = {
@@ -131,7 +138,7 @@ def main():
             # Exibe a temperatura
             if temperatura:
                 st.subheader('Temperatura')
-                st.write(f"{temperatura[-1]} °C")  # Exibe a última temperatura recebida
+                st.write(f"**{temperatura[-1]} °C**")  # Exibe a última temperatura recebida
 
 
         # Aguarda 1 segundo antes de atualizar novamente
@@ -143,4 +150,4 @@ if __name__ == "__main__":
 
     # Roda o Streamlit
     main()
-
+  

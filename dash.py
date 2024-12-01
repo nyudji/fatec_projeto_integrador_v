@@ -2,7 +2,7 @@ import streamlit as st
 import paho.mqtt.client as mqtt
 import time
 import pandas as pd
-from save2 import save
+from save import save
 
 # Definindo variáveis para o MQTT
 MQTT_BROKER = "brw.net.br"  # Host do MQTT

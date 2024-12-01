@@ -1,0 +1,74 @@
+#include <Wire.h>
+#include <MPU6050.h>
+#include <arduinoFFT.h> // Inclua a biblioteca correta
+
+// Declaração das variáveis globais
+MPU6050 mpu;
+const uint16_t samples = 256; // Deve ser uma potência de 2
+const double samplingFrequency = 1000.0; // Frequência de amostragem
+const double dt = 1.0 / samplingFrequency;
+int16_t accelX, accelY, accelZ;
+double vReal[samples]; // Array para valores reais
+double vImag[samples]; // Array para valores imaginários
+
+// Criação do objeto FFT, agora com os parâmetros corretos
+ArduinoFFT FFT = ArduinoFFT(vReal, vImag, samples, samplingFrequency, 0); // 0 é para não normalizar
+
+void setup() {
+  Serial.begin(115200); // Inicializa a comunicação serial
+  Wire.begin();
+  mpu.initialize();
+
+  // Verifica a conexão com o MPU6050
+  if (mpu.testConnection()) {
+      Serial.println("MPU6050 conectado com sucesso");
+  } else {
+      Serial.println("Falha na conexão com o MPU6050");
+  }
+}
+
+void loop() {
+  // Coleta de amostras
+  for (uint16_t i = 0; i < samples; i++) {
+    // Lê os dados do acelerômetro
+    mpu.getAcceleration(&accelX, &accelY, &accelZ);
+
+    // Preenche o array com os dados do eixo X (ajuste conforme necessário)
+    vReal[i] = accelX; // Você pode usar outro eixo, se necessário
+    vImag[i] = 0;      // Parte imaginária zero
+    delay(dt * 1000); // Aguarda para amostragem
+  }
+
+  // Aplica a janela Hamming
+  FFT.windowing(vReal, samples, FFT_WIN_TYP_HAMMING, FFT_FORWARD); // Utilize o tipo de janela correto
+
+  // Calcula a FFT
+  FFT.compute(vReal, vImag, samples, FFT_FORWARD); // A direção deve ser FFT_FORWARD
+  FFT.complexToMagnitude(vReal, vImag, samples); // Converte para magnitude
+
+  // Encontra a frequência com maior magnitude
+  double maxMagnitude = 0.0;
+  int maxIndex = 0;
+  for (int i = 1; i < samples / 2; i++) { // Começa de 1 para evitar o componente DC
+    if (vReal[i] > maxMagnitude) {
+      maxMagnitude = vReal[i];
+      maxIndex = i;
+    }
+  }
+
+  // Calcula a frequência correspondente
+  double frequency = maxIndex * samplingFrequency / samples;
+
+  // Imprime os resultados
+  Serial.print("Magnitude Máxima: ");
+  Serial.print(maxMagnitude);
+  Serial.print(" | Frequência Dominante: ");
+  Serial.print(frequency);
+  Serial.println(" Hz");
+
+  delay(1000); // Aguarda um segundo antes de coletar novamente
+}
+
+
+ //A magnitude é uma medida da força ou da intensidade de um sinal em uma determinada frequência. Ao aplicar a FFT a um sinal, você transforma o domínio do tempo (sinal original) para o domínio da frequência.
+// frequência dominante é a frequência associada à magnitude máxima. É a frequência à qual a vibração é mais intensa.

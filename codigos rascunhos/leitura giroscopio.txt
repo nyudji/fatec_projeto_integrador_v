@@ -1,0 +1,44 @@
+#include <Wire.h>
+#include <MPU6050.h>
+
+MPU6050 mpu;
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin(21, 22); // Certifique-se de que os pinos I2C estão corretos
+
+  // Inicialize o MPU6050
+  mpu.initialize();
+  if (mpu.testConnection()) {
+    Serial.println("MPU6050 conectado com sucesso");
+  } else {
+    Serial.println("Falha na conexão com o MPU6050");
+  }
+}
+
+void loop() {
+  int16_t gyroX, gyroY, gyroZ;
+
+  // Lê os valores do giroscópio
+  mpu.getRotation(&gyroX, &gyroY, &gyroZ);
+  
+  // Exibe os valores no monitor serial
+  Serial.print("Giro X: ");
+  Serial.print(gyroX);
+  Serial.print(" | Giro Y: ");
+  Serial.print(gyroY);
+  Serial.print(" | Giro Z: ");
+  Serial.println(gyroZ);
+
+  int16_t accelX, accelY, accelZ;
+  
+  mpu.getAcceleration(&accelX, &accelY, &accelZ);
+  
+  // Calcula a magnitude da aceleração
+  float magnitude = sqrt(sq(accelX) + sq(accelY) + sq(accelZ));
+  
+  Serial.print("Magnitude da Vibração: ");
+  Serial.println(magnitude);
+  
+  delay(500); // Aguarda meio segundo antes de ler novamente
+}

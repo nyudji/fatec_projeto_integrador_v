@@ -17,3 +17,59 @@
 2024-12-01 20:59:11 - OK - Classe B, Mï¿½dia X: 0.79, Mï¿½dia Y: 0.57, Mï¿½dia Z: 0.79, Mï¿½dia Temp: 29.00
 2024-12-01 21:12:14 - OK - Classe B, Mï¿½dia X: 0.78, Mï¿½dia Y: 0.57, Mï¿½dia Z: 0.79, Mï¿½dia Temp: 29.00
 2024-12-01 21:13:14 - OK - Classe B, Mï¿½dia X: 0.78, Mï¿½dia Y: 0.57, Mï¿½dia Z: 0.79, Mï¿½dia Temp: 29.00
+2024-12-01 23:28:55 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:29:02 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:29:12 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:29:17 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:29:21 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:29:28 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:29:36 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:29:45 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.18, Média Temp: 29.00
+2024-12-01 23:29:52 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.18, Média Temp: 29.00
+2024-12-01 23:29:57 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:30:07 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:30:15 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.18, Média Temp: 29.00
+2024-12-01 23:30:21 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:30:30 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.18, Média Temp: 29.00
+2024-12-01 23:30:37 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.18, Média Temp: 29.00
+2024-12-01 23:30:42 - OK - Classe B, Média X: 0.87, Média Y: 0.74, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:30:51 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:30:58 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.18, Média Temp: 29.00
+2024-12-01 23:31:03 - OK - Classe B, Média X: 0.87, Média Y: 0.73, Média Z: 0.19, Média Temp: 29.00
+2024-12-01 23:31:14 - OK - Classe B, Média X: 0.88, Média Y: 0.74, Média Z: 1.19, Média Temp: 29.00
+2024-12-01 23:34:40 - OK - Classe B, Média X: 0.74, Média Y: 1.02, Média Z: 0.95, Média Temp: 29.00
+2024-12-01 23:34:47 - OK - Classe B, Média X: 0.73, Média Y: 1.02, Média Z: 0.95, Média Temp: 29.00
+2024-12-01 23:35:19 - OK - Classe B, Média X: 0.64, Média Y: 0.86, Média Z: 0.13, Média Temp: 28.00
+2024-12-01 23:35:24 - OK - Classe B, Média X: 0.63, Média Y: 0.87, Média Z: 1.12, Média Temp: 28.00
+2024-12-01 23:35:46 - OK - Classe B, Média X: 0.63, Média Y: 0.88, Média Z: 1.12, Média Temp: 28.00
+2024-12-01 23:35:56 - OK - Classe B, Média X: 0.62, Média Y: 0.88, Média Z: 0.12, Média Temp: 28.00
+2024-12-01 23:36:03 - OK - Classe B, Média X: 1.62, Média Y: 1.38, Média Z: 1.20, Média Temp: 28.00
+2024-12-01 23:37:05 - OK - Classe B, Média X: 0.87, Média Y: 0.07, Média Z: 0.43, Média Temp: 28.00
+2024-12-01 23:37:12 - OK - Classe B, Média X: 0.87, Média Y: 0.07, Média Z: 0.44, Média Temp: 28.00
+2024-12-01 23:37:16 - OK - Classe B, Média X: 0.86, Média Y: 0.07, Média Z: 0.44, Média Temp: 28.00
+2024-12-01 23:37:21 - Erro - Erro: Classe D, Média X: 13.53, Média Y: 24.71, Média Z: 17.84, Média Temp: 28.00
+2024-12-01 23:37:40 - Erro - Erro: Classe D, Média X: 7.50, Média Y: 19.13, Média Z: 10.36, Média Temp: 28.00
+2024-12-01 23:38:50 - OK - Classe A, Média X: 0.66, Média Y: 0.31, Média Z: 0.13, Média Temp: 28.00
+2024-12-01 23:38:54 - OK - Classe A, Média X: 0.64, Média Y: 0.31, Média Z: 0.14, Média Temp: 28.00
+2024-12-01 23:38:59 - OK - Classe A, Média X: 0.61, Média Y: 0.32, Média Z: 0.15, Média Temp: 28.00
+2024-12-01 23:39:04 - OK - Classe A, Média X: 0.58, Média Y: 0.31, Média Z: 0.16, Média Temp: 28.00
+2024-12-01 23:39:49 - OK - Classe A, Média X: 0.55, Média Y: 0.31, Média Z: 0.17, Média Temp: 28.00
+2024-12-01 23:39:54 - OK - Classe A, Média X: 0.55, Média Y: 0.31, Média Z: 0.18, Média Temp: 28.00
+2024-12-01 23:40:01 - OK - Classe B, Média X: 0.55, Média Y: 0.31, Média Z: 1.17, Média Temp: 28.00
+2024-12-01 23:40:05 - Erro - Erro: Classe D, Média X: 34.47, Média Y: 55.21, Média Z: 32.68, Média Temp: 28.00
+2024-12-01 23:40:10 - Erro - Erro: Classe D, Média X: 20.84, Média Y: 53.72, Média Z: 28.55, Média Temp: 28.00
+2024-12-01 23:40:17 - Erro - Erro: Classe D, Média X: 14.25, Média Y: 42.91, Média Z: 23.68, Média Temp: 28.00
+2024-12-01 23:40:23 - Erro - Erro: Classe C, Média X: 1.48, Média Y: 3.09, Média Z: 1.83, Média Temp: 28.00
+2024-12-01 23:40:28 - OK - Classe B, Média X: 0.95, Média Y: 0.30, Média Z: 0.98, Média Temp: 28.00
+2024-12-01 23:40:33 - OK - Classe B, Média X: 0.90, Média Y: 0.30, Média Z: 1.01, Média Temp: 28.00
+2024-12-01 23:40:37 - OK - Classe B, Média X: 0.90, Média Y: 0.30, Média Z: 1.01, Média Temp: 28.00
+2024-12-01 23:40:41 - OK - Classe B, Média X: 0.89, Média Y: 0.31, Média Z: 1.01, Média Temp: 28.00
+2024-12-01 23:40:46 - OK - Classe B, Média X: 0.89, Média Y: 0.30, Média Z: 1.01, Média Temp: 28.00
+2024-12-01 23:40:50 - OK - Classe B, Média X: 0.89, Média Y: 0.30, Média Z: 1.02, Média Temp: 28.00
+2024-12-01 23:40:55 - OK - Classe B, Média X: 0.88, Média Y: 0.30, Média Z: 1.02, Média Temp: 28.00
+2024-12-01 23:41:30 - OK - Classe B, Média X: 0.87, Média Y: 0.30, Média Z: 1.02, Média Temp: 28.00
+2024-12-01 23:41:35 - OK - Classe B, Média X: 0.87, Média Y: 0.30, Média Z: 1.02, Média Temp: 28.00
+2024-12-01 23:41:41 - Erro - Erro: Classe D, Média X: 16.79, Média Y: 26.63, Média Z: 16.76, Média Temp: 28.00
+2024-12-01 23:42:06 - Erro - Erro: Classe D, Média X: 3.36, Média Y: 8.17, Média Z: 5.24, Média Temp: 28.00
+2024-12-01 23:42:14 - Erro - Erro: Classe D, Média X: 7.77, Média Y: 7.57, Média Z: 15.87, Média Temp: 28.00
+2024-12-01 23:42:19 - Erro - Erro: Classe D, Média X: 7.46, Média Y: 16.89, Média Z: 16.39, Média Temp: 28.00

@@ -81,7 +81,6 @@ def log_error(diagnostic, cv, avg_x, avg_y, avg_z, avg_temp):
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     message = f"Erro: Classe {cv}, Média X: {avg_x:.2f}, Média Y: {avg_y:.2f}, Média Z: {avg_z:.2f}, Média Temp: {avg_temp:.2f}"
     log_data = {"timestamp": timestamp, "diagnostic": diagnostic, "message": message}
-    
     # Salva o log de erro no arquivo de texto
     save_log_to_txt(log_data)
     print(f"Log de erro gerado: {message}")
@@ -135,6 +134,7 @@ def calculate_average(conn):
             save_to_db(cursor, timestamp, diagnostic, cv, avg_x, avg_y, avg_z, avg_temp)
         else:
             diagnostic = "Erro"
+            timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             log_error(diagnostic, cv, avg_x, avg_y, avg_z, avg_temp)
             save_to_db(cursor, timestamp, diagnostic, cv, avg_x, avg_y, avg_z, avg_temp)
         # Limpa as listas após salvar os logs para calcular a média de novos valores
@@ -184,7 +184,7 @@ def save():
     client.loop_start()
 
     # Agendamento para coletar dados e calcular a média a cada 1 minuto
-    schedule.every(1).minutes.do(calculate_average,conn)
+    schedule.every(1).second.do(calculate_average,conn)
 
     # Loop principal
     while True:

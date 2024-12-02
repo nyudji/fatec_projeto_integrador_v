@@ -21,6 +21,11 @@ A solução permite identificar falhas mecânicas iminentes, reduzindo custos, e
 - Monitoramento de dados
 - Log em .txt e SQL
 
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/92732e5f-a921-4a87-9471-585020ceded3" alt="dash1" width="450"/>
+    <img src="https://github.com/user-attachments/assets/4560195f-544d-4d65-8a6e-2bacc8f864d8" alt="dash2" width="450"/>
+</div>
+
 ## Requirements
 - Python 3.12
 - `streamlit` - plataforma web

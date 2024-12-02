@@ -1,5 +1,7 @@
-# Projeto IOT
-![7082598](https://github.com/user-attachments/assets/daebd76d-198c-4f1e-8faa-ee9dadd08548)
+<div align="center">
+  <h1>Projeto IOT</h1>
+  <img src="https://github.com/user-attachments/assets/daebd76d-198c-4f1e-8faa-ee9dadd08548" alt="Icon" width="100">
+</div>
 
 Este projeto aborda o diagnóstico de motores de bombas d'água, utilizando tecnologias de IoT e análise de dados. A solução propõe sensores de vibração conectados via ESP32 para coleta contínua de dados, analisados em tempo real e por meio do RMS fazer diagnóstico referente ao motor. Permitindo assim, detecção de falhas iminentes, como desalinhamentos ou desgastes mecânicos.
 

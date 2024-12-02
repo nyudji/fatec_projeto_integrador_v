@@ -6,7 +6,7 @@ import os
 import psycopg2
 
 # Função para criar a tabela no PostgreSQL
-def create_table(cursor, conn):
+def create_table(cursor):
     try:
         # Cria a tabela se ela não existir
         cursor.execute('''
@@ -20,11 +20,7 @@ def create_table(cursor, conn):
                 avg_temp REAL
             )
         ''')
-        # Comita as mudanças no banco
-        conn.commit()
-        cursor.close()
-        conn.close()
-        print("Tabela criada com sucesso!")
+        print("Etapa criação da tabela executada com sucesso.")
     except Exception as e:
         print(f"Erro ao criar a tabela: {e}")
 
@@ -44,7 +40,7 @@ def connect_to_db():
         cursor = conn.cursor()
 
         # Agora você pode chamar a função create_table
-        create_table(cursor, conn)
+        create_table(cursor)
         
         return conn, cursor
 
@@ -54,13 +50,15 @@ def connect_to_db():
 
 cursor, conn = connect_to_db()
 
-def save_to_db(cursor, timestamp, diagnostic, class_name, avg_x, avg_y, avg_z, avg_temp):
+def save_to_db(conn, timestamp, diagnostic, class_name, avg_x, avg_y, avg_z, avg_temp):
     try:
-        cursor.execute('''
-            INSERT INTO vibration_logs (timestamp, diagnostic, class, avg_x, avg_y, avg_z, avg_temp)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
-        ''', (timestamp, diagnostic, class_name, avg_x, avg_y, avg_z, avg_temp))
-        print(f"Dados salvos: {timestamp}, {diagnostic}, {class_name}, {avg_x}, {avg_y}, {avg_z}, {avg_temp}")
+        with conn.cursor() as cursor:
+            cursor.execute('''
+                INSERT INTO vibration_logs (timestamp, diagnostic, class, avg_x, avg_y, avg_z, avg_temp)
+                VALUES (%s, %s, %s, %s, %s, %s, %s)
+            ''', (timestamp, diagnostic, class_name, avg_x, avg_y, avg_z, avg_temp))
+            conn.commit()
+            print(f"Dados salvos: {timestamp}, {diagnostic}, {class_name}, {avg_x}, {avg_y}, {avg_z}, {avg_temp}")
     except Exception as e:
         print(f"Erro ao salvar no banco de dados: {e}")
 
@@ -114,7 +112,7 @@ def on_message(client, userdata, msg):
         cv = msg.payload.decode()
 
 # Função para calcular a média dos valores
-def calculate_average(cursor):
+def calculate_average(conn):
     global rms_x_values, rms_y_values, rms_z_values, rms_temp_values, cv
     
     # Verifica se existem valores para calcular a média
@@ -138,7 +136,7 @@ def calculate_average(cursor):
         else:
             diagnostic = "Erro"
             log_error(diagnostic, cv, avg_x, avg_y, avg_z, avg_temp)
-            save_to_db(cursor, timestamp, diagnostic, cv, rms_x_values, rms_y_values, rms_z_values, rms_temp_values)
+            save_to_db(cursor, timestamp, diagnostic, cv, avg_x, avg_y, avg_z, avg_temp)
         # Limpa as listas após salvar os logs para calcular a média de novos valores
         rms_x_values.clear()
         rms_y_values.clear()
@@ -158,7 +156,7 @@ def save():
     MQTT_BROKER = "brw.net.br"  # Host do MQTT
     MQTT_PORT = 1883
     MQTT_TOPIC = "vibration/#"
-    MQTT_CLIENT_ID = "streamlit_client"
+    MQTT_CLIENT_ID = "pi7"
     MQTT_USERNAME = "fatec"  # Insira seu nome de usuário aqui
     MQTT_PASSWORD = "SQRT(e)!=172"  # Insira sua senha aqui
 
@@ -186,7 +184,7 @@ def save():
     client.loop_start()
 
     # Agendamento para coletar dados e calcular a média a cada 1 minuto
-    schedule.every(1).minutes.do(calculate_average,cursor)
+    schedule.every(1).minutes.do(calculate_average,conn)
 
     # Loop principal
     while True:

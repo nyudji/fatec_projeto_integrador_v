@@ -22,7 +22,7 @@ A solução permite identificar falhas mecânicas iminentes, reduzindo custos, e
 - Log em .txt e SQL
 
 ## Requirements
-- Python 3.9+
+- Python 3.12
 - `streamlit` - plataforma web
 - `pandas` - manipulação de dados
 - `psycopg2` - conexao com postgre

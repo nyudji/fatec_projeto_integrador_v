@@ -153,12 +153,12 @@ def on_disconnect(client, userdata, rc):
 # Função principal para iniciar o monitoramento
 def save():
     # Definindo variáveis para o MQTT
-    MQTT_BROKER = "brw.net.br"  # Host do MQTT
+    MQTT_BROKER = ""  # Host do MQTT
     MQTT_PORT = 1883
-    MQTT_TOPIC = "vibration/#"
+    MQTT_TOPIC = ""
     MQTT_CLIENT_ID = "pi7"
-    MQTT_USERNAME = "fatec"  # Insira seu nome de usuário aqui
-    MQTT_PASSWORD = "SQRT(e)!=172"  # Insira sua senha aqui
+    MQTT_USERNAME = ""  # Insira seu nome de usuário aqui
+    MQTT_PASSWORD = ""  # Insira sua senha aqui
 
     # Variáveis globais
     global rms_x_values, rms_y_values, rms_z_values, rms_temp_values, cv

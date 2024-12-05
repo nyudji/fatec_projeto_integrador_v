@@ -5,12 +5,12 @@ import pandas as pd
 from save import save
 
 # Definindo variáveis para o MQTT
-MQTT_BROKER = "brw.net.br"  # Host do MQTT
+MQTT_BROKER = ""  # Host do MQTT
 MQTT_PORT = 1883
 MQTT_TOPIC = "vibration/#"
 MQTT_CLIENT_ID = "streamlit_client"
-MQTT_USERNAME = "fatec"  # Insira seu nome de usuário aqui
-MQTT_PASSWORD = "SQRT(e)!=172"    # Insira sua senha aqui
+MQTT_USERNAME = ""  # Insira seu nome de usuário aqui
+MQTT_PASSWORD = ""    # Insira sua senha aqui
 
 # Inicializando os dados de vibração
 rms_x = []
@@ -57,6 +57,7 @@ def mqtt_loop():
 
 # Função para iniciar a interface Streamlit
 def main():
+    global rms_x, rms_y, rms_z, classe, temperatura
     st.title('Monitoramento de vibração de motores')
     with st.expander("Sumário dos Diagnósticos"):
         st.markdown("""
@@ -105,7 +106,23 @@ def main():
 
 
             # Gráfico combinado de vibrações
-            st.subheader('Gráfico Combinado de Vibrações (X, Y, Z)')            
+            st.subheader('Gráfico Combinado de Vibrações (X, Y, Z)')
+            # Ajustar os comprimentos das listas para que todas tenham o mesmo tamanho
+            max_len = max(len(rms_x), len(rms_y), len(rms_z))
+
+            # Preencher as listas menores com valores nulos (NaN) ou o último valor
+            rms_x = rms_x[-max_len:]  # Cortar para o tamanho máximo
+            rms_y = rms_y[-max_len:]
+            rms_z = rms_z[-max_len:]
+
+            # Cria o DataFrame
+            data = {
+                "Vibração X": rms_x,
+                "Vibração Y": rms_y,
+                "Vibração Z": rms_z
+            }
+            df = pd.DataFrame(data)
+            
             if rms_x and rms_y and rms_z:
                 # Cria um DataFrame para combinar os eixos
                 data = {
@@ -114,7 +131,7 @@ def main():
                     "Vibração Z": rms_z[-100:]   # Últimos 100 pontos
                 }
                 df = pd.DataFrame(data)
-                st.line_chart(df)
+                
 
             # Gráficos individuais menores
             st.subheader('X, Y, Z')

@@ -129,9 +129,9 @@ const char* password = "d6qfat2m";
 uint64_t chipid; 
 uint8_t mac_int[6]; // Mac em formato "inteiro"
 char mac_str [20];  // Mac  em formato String (usado para MQTT ClientID
-const char* mqttServer = "brw.net.br"; //brw.net.br
+const char* mqttServer = ""; //brw.net.br
 const char* mqttUser = "fatec"; 
-const char* mqttPassword = "SQRT(e)!=172";
+const char* mqttPassword = "";
 
 
 void setup() {

@@ -7,6 +7,7 @@
 Este projeto aborda o diagnóstico de motores de bombas d'água, utilizando tecnologias de IoT e análise de dados. A solução propõe sensores de vibração conectados via ESP32 para coleta contínua de dados, analisados em tempo real e por meio do RMS fazer diagnóstico referente ao motor. Permitindo assim, detecção de falhas iminentes, como desalinhamentos ou desgastes mecânicos.
 
 A solução permite identificar falhas mecânicas iminentes, reduzindo custos, evitando paradas inesperadas e aumentando a vida útil dos equipamentos. Com isso, promovemos maior eficiência, confiabilidade e sustentabilidade na gestão de sistemas de bombeamento.
+![apresentacao_iot](https://github.com/user-attachments/assets/f793cf89-bf97-4821-a9f7-39d3de3cc8ea)
 
 ## Ferramentas
 - Python
@@ -15,7 +16,7 @@ A solução permite identificar falhas mecânicas iminentes, reduzindo custos, e
 - MQTTClient(Mobile)
 - Eclipse Mosquitto
 - PostgreSQL
-
+  
 ## Funções
 - Leitura de sensores MPU(giroscópio e temperatura)
 - Calculo RMS(Root Mean Square)
